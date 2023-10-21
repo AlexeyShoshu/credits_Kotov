@@ -162,6 +162,11 @@
         width: 100%;
     }
 
+    .review__line-text-block {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
     .header__nav {
         top: 56px;
         left: 0;
