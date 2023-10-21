@@ -491,3 +491,12 @@ label {
 .review__line-author {
     font-weight: bold;
 }
+
+.review__block:nth-child(odd) .review__line {
+    flex-direction: row-reverse;
+}
+
+.review__block:nth-child(odd) .review__line-text-block {
+    margin-left: 0;
+    margin-right: 30px;
+}
