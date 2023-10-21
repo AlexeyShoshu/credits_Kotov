@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Деньги в долг</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/media.css">
+</head>
+
+<body>
+    <!-- Header start -->
+    <header class="header-wrap">
+        <div class="wrapper">
+
+            <div class="header-items d-flex al-cntr jc-sb jc-sb-mobile">
+                <a class="header__logo-wrap image-wrap display-none-mobile">
+                    <img src="./images/header-logo.png" alt="" title="">
+                </a>
+
+                <a class="header__logo-wrap-mobile image-wrap display-none-pc d-flex jc-">
+                    <img src="./images/header-logo-mobile.png" alt="" title="">
+                </a>
+
+                <div class="header__nav d-flex display-none-mobile">
+                    <div class="header__menu d-flex">
+                        <ul class="header__list d-flex">
+                            <li class="header__item col-xs-100">
+                                <a href="#!" class="header__link">Требования и условия</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="header-contacts">
+                    <div class="header-contact header-contacts-text display-none-mobile">Единый номер в РБ</div>
+                    <a href="tel:+375445517813" class="header-contact header-contacts-number">+375 (11) 111-11-11</a>
+                </div>
+
+                <div class="menu-btn dropdown d-flex al-cntr jc-cntr">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- Header end-->
+
+    <div class="content">
+        <!-- Banner start -->
+        <div class="banner">
+            <div class="banner-pic d-flex">
+                <div class="wrapper">
+                    <h1 class="banner-text banner-pic-title ta-cntr-xs">
+                        Деньги в долг в РБ на выгодных условиях!
+                    </h1>
+
+                    <div class="banner-text banner-pic-subtitle ta-cntr-xs">
+                        Просто заполните online-заявку и получите персональное предложение на самых выгодных условиях!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="blocks-wrap-bg">
+            <div class="wrapper">
+                <div class="banner-blocks d-flex jc-cntr al-cntr">
+                    <a href="#!" class="banner-block col-xs-50 d-flex al-cntr jc-cntr">
+                        Работаем без выходных
+                    </a>
+                    <a href="#!" class="banner-block col-xs-50 d-flex al-cntr jc-cntr">
+                        Гарантированное оформление
+                    </a>
+                    <a href="#!" class="banner-block col-xs-50 d-flex al-cntr jc-cntr">
+                        Деньги всегда наличными
+                    </a>
+                    <a href="#!" class="banner-block col-xs-50 d-flex al-cntr jc-cntr">
+                        Быстрота получения  
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Banner end-->
+
+        <!-- Feedback start-->
+        <div class="feedback">
+            <div class="wrapper">
+                <div class="feedback-title d-flex jc-cntr">
+                    Нужен кредит? Оформляйте заявку!
+                </div>
+
+                <div class="feedback-form-wrap d-flex jc-cntr">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form" name="form" autocomplete="off">
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" name="name" placeholder="Введите имя" required
+                                data-reg="^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$" />
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="city">Город</label>
+                            <input type="text" id="city" name="city" placeholder="Введите город" required
+                                data-reg="^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$" />
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="amount">Необходимая сумма</label>
+                            <div class="range_box">
+                                <input type="range" class="range" name="BYN" id="amount" value="0" step="100" min="100"
+                                    max="10000">
+                                <span class="rangeValue">100 BYN</span>
+                            </div>
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="months">На какой срок?</label>
+                            <div class="range_box">
+                                <input type="range" class="range" name="мес" id="months" value="0" step="1" min="2"
+                                    max="36">
+                                <span class="rangeValue">2 мес</span>
+                            </div>
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="phone">Телефон:</label>
+                            <input type="text" id="phone" name="phone" placeholder="Введите телефон"
+                                data-reg="[^a-zа-я]" data-name="Телефон:" required />
+                        </div>
+                        <div class="feedback-form-line d-flex jc-sa al-cntr">
+                            <div class="checkbox__width-fixed">
+                                <input id="sms" name="sms" type="checkbox" class="checkbox__wrap">
+                                <label class="sms-wrap" for="sms">СМС</label>
+                            </div>
+                            <div class="checkbox__width-fixed">
+                                <input id="calling" name="calling" type="checkbox" class="checkbox__wrap">
+                                <label class="calling-wrap" for="calling">Звонок</label>
+                            </div>
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <div class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button"
+                                name="feedback-button">
+                                Отправить
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Feedback end -->
+    </div>
+
+    <script src="/js/jquery-3.6.3.js"></script>
+    <script src="/js/jquery.maskedinput.js"></script>
+    <script src="/js/sweetalert2.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/validation.js"></script>
+</body>
+
+</html>
