@@ -421,4 +421,29 @@ label {
     width: 86px;
 }
 
+.w-40 {
+    width: 40%;
+}
+
+.banner-text li {
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.banner-text li:nth-last-child(n+2) {
+    margin-bottom: 10px;
+}
+
+.banner-text li::before {
+    font-weight: 400;
+    color: turquoise; /* Цвет маркера */
+    content: "•"; /* Маркер */
+    padding-right: 7px; /* Отступ от маркера до текста */
+}
+
+#whyWE {
+    font-size: 32px;
+}
+
 /* Feedback styles end */
