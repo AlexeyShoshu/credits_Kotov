@@ -467,8 +467,8 @@ label {
 }
 
 .review__line-photo {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
 }
 
 .review__line-photo img {
@@ -481,7 +481,8 @@ label {
 
 .review__line-text-block {
     color: black;
-    width: calc(100% - 180px);
+    width: calc(100% - 250px);
+    font-size: 20px;
 }
 
 .mt-10 {
