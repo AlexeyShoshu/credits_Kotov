@@ -15,7 +15,13 @@ window.onload = function () {
             gadgetEvent = 'mousemove';
         }
         item.addEventListener(`${gadgetEvent}`, function () {
-            this.closest('.range_box').querySelector('.rangeValue').innerHTML = `${this.value} ${this.name}`;
+            let rangeName = '';
+            if (this.name === 'amount') {
+                rangeName = 'BYN';
+            } else {
+                rangeName = 'мес';
+            }
+            this.closest('.range_box').querySelector('.rangeValue').innerHTML = `${this.value} ${rangeName}`;
         })
     });
 
@@ -28,8 +34,14 @@ window.onload = function () {
 
     button.onclick = function () {
         let error = 0;
+        let array = [];
         if (form.elements.length > 0) {
             Array.from(form.elements).forEach((el) => {
+                array.push({
+                    name: el.getAttribute('data-name'),
+                    value: el.value,
+                    required: el.required
+                });
                 if ((el.value == "" || (el.checked === false && el.value == "on")) && el.required === true) {
                     el.classList.add('error');
                     error++;
@@ -51,15 +63,31 @@ window.onload = function () {
         }
 
         if (error === 0) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Спасибо за заявку!',
-                timer: 5000
+            $.ajax({
+                url: form.getAttribute('data-action'),
+                method: "post",
+                data: new FormData(form),
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    let info = JSON.parse(data);
+                    Swal.fire({
+                        icon: info.status,
+                        title: info.message,
+                        timer: 5000
+                    })
+                    form.reset(); 
+                    document.querySelectorAll('.range_box .rangeValue').forEach(item => {
+                        let rangeName = '';
+                        if (this.name === 'amount') {
+                            rangeName = 'BYN';
+                        } else {
+                            rangeName = 'мес';
+                        }
+                        item.innerHTML = `${item.previousSibling.previousSibling.value} ${rangeName}`;
+                    });
+                }
             })
-            form.reset();
-            document.querySelectorAll('.range_box .rangeValue').forEach(item => {
-                item.innerHTML = `${item.previousSibling.previousSibling.value} ${item.previousSibling.previousSibling.name}`;
-            });
         } else {
             Swal.fire({
                 icon: 'error',

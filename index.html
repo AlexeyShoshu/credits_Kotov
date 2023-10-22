@@ -103,21 +103,21 @@
                 </div>
 
                 <div class="feedback-form-wrap d-flex jc-cntr">
-                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form" name="form" autocomplete="off">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form" name="form" autocomplete="off" method="post" data-action="/mail.php">
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="name">Имя</label>
-                            <input type="text" id="name" name="name" placeholder="Введите имя" required
+                            <input type="text" id="name" name="name" data-name="Имя:" placeholder="Введите имя" required
                                 data-reg="^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$" />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="city">Город</label>
-                            <input type="text" id="city" name="city" placeholder="Введите город" required
+                            <input type="text" id="city" name="city" data-name="Город:" placeholder="Введите город" required
                                 data-reg="^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$" />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="amount">Необходимая сумма</label>
                             <div class="range_box">
-                                <input type="range" class="range" name="BYN" id="amount" value="0" step="100" min="100"
+                                <input type="range" class="range" name="amount" data-name="Сумма:" id="amount" value="0" step="100" min="100"
                                     max="10000">
                                 <span class="rangeValue">100 BYN</span>
                             </div>
@@ -125,7 +125,7 @@
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="months">На какой срок?</label>
                             <div class="range_box">
-                                <input type="range" class="range" name="мес" id="months" value="0" step="1" min="2"
+                                <input type="range" class="range" name="months" id="months" data-name="Срок:" value="0" step="1" min="2"
                                     max="36">
                                 <span class="rangeValue">2 мес</span>
                             </div>
@@ -138,11 +138,11 @@
                         <div class="feedback-form-line d-flex jc-sa al-cntr">
                             <div class="checkbox__width-fixed">
                                 <input id="sms" name="sms" type="checkbox" class="checkbox__wrap">
-                                <label class="sms-wrap" for="sms">СМС</label>
+                                <label class="sms-wrap" for="sms" data-name="СМС:">СМС</label>
                             </div>
                             <div class="checkbox__width-fixed">
                                 <input id="calling" name="calling" type="checkbox" class="checkbox__wrap">
-                                <label class="calling-wrap" for="calling">Звонок</label>
+                                <label class="calling-wrap" for="calling" data-name="Звонок:">Звонок</label>
                             </div>
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
