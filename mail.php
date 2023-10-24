@@ -32,7 +32,7 @@ if (!empty($required_inputs)):
         $mail = new PHPMailer\PHPMailer\PHPMailer;
         $mail->CharSet = 'UTF-8';
         $mail->setFrom('test@test.ru', 'Иван Иванов');
-        $mail->addAddress('test@ya.ru', 'Вася Петров');
+        $mail->addAddress('sendermail2281@gmail.com', 'Вася Петров');
         $mail->Subject = 'subject';
         $mail->Body = $mes;
 
