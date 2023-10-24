@@ -1,5 +1,9 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 require 'phpMailer/PHPMailer.php';
 require 'phpMailer/SMTP.php';
 require 'phpMailer/Exception.php';
@@ -29,11 +33,22 @@ if (!empty($required_inputs)):
             }
         }
 
-        $mail = new PHPMailer\PHPMailer\PHPMailer;
+        $mail = new PHPMailer(true);
+        /*$mail->SMTPDebug = SMTP::DEBUG_SERVER;*/
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('test@test.ru', 'Иван Иванов');
-        $mail->addAddress('sendermail2281@gmail.com', 'Вася Петров');
-        $mail->Subject = 'subject';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.rambler.ru';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'kotovdenis2004@rambler.ru';
+        $mail->Password = 'QAZwsx123';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+        $mail->From = "kotovdenis2004@rambler.ru";
+        $mail->FromName = "kotovdenis2004@rambler.ru";
+        $mail->AddAddress("sendermail2281@gmail.com");
+        /* $mail->setFrom('kotovdenis2004@rambler.ru', 'kotovdenis2004@rambler.ru');
+         $mail->addAddress('nerrok225@gmail.com', 'Вася Петров'); */
+        $mail->Subject = 'Отправка данных';
         $mail->Body = $mes;
 
         if ($mail->send())
@@ -70,23 +85,23 @@ if (empty($name)) {
     $email = 'creditbel.info';
 
     if ($city == 'Минск') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdMinsk, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdMinsk, $mes);
     } elseif ($city == 'Брест') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdBrest, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdBrest, $mes);
     } elseif ($city == 'Могилев') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdMogilev, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdMogilev, $mes);
     } elseif ($city == 'Мозырь') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdMozyr, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdMozyr, $mes);
     } elseif ($city == 'Гомель') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdGomel, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdGomel, $mes);
     } elseif ($city == 'Рогачев') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdRogacev, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdRogacev, $mes);
     } elseif ($city == 'Жлобин') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdZlobin, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdZlobin, $mes);
     } elseif ($city == 'Речица') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdRecica, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdRecica, $mes);
     } elseif ($city == 'Светлогорск') {
-        sendTelegramMessage($telegramBotToken, $telegramChatIdCvetlogorsk, $message);
+        sendTelegramMessage($telegramBotToken, $telegramChatIdCvetlogorsk, $mes);
     }
 
     exit();
