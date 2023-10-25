@@ -1,15 +1,7 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-require 'phpMailer/PHPMailer.php';
-require 'phpMailer/SMTP.php';
-require 'phpMailer/Exception.php';
-
-$required_inputs = ['name' => 'Имя', 'phone' => 'Телефон', 'city' => 'Почта'];
-$inputs = ['name' => 'Имя', 'phone' => 'Телефон', 'city' => 'Почта', 'amount' => 'Сумма', 'months' => 'Месяцы', 'sms' => 'СМС', 'calling' => 'Звонок'];
+$required_inputs = ['name' => 'Имя', 'phone' => 'Телефон', 'city' => 'Город'];
+$inputs = ['name' => 'Имя', 'phone' => 'Телефон', 'city' => 'Город', 'amount' => 'Сумма', 'months' => 'Месяцы', 'sms' => 'СМС', 'calling' => 'Звонок'];
 if (!empty($required_inputs)):
 
     $response = [];
@@ -33,25 +25,15 @@ if (!empty($required_inputs)):
             }
         }
 
-        $mail = new PHPMailer(true);
-        /*$mail->SMTPDebug = SMTP::DEBUG_SERVER;*/
-        $mail->CharSet = 'UTF-8';
-        $mail->isSMTP();
-        $mail->Host = 'smtp.rambler.ru';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'kotovdenis2004@rambler.ru';
-        $mail->Password = 'QAZwsx123';
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465;
-        $mail->From = "kotovdenis2004@rambler.ru";
-        $mail->FromName = "kotovdenis2004@rambler.ru";
-        $mail->AddAddress("sendermail2281@gmail.com");
-        /* $mail->setFrom('kotovdenis2004@rambler.ru', 'kotovdenis2004@rambler.ru');
-         $mail->addAddress('nerrok225@gmail.com', 'Вася Петров'); */
-        $mail->Subject = 'Отправка данных';
-        $mail->Body = $mes;
+        $to = 'sendermail2281@gmail.com';
+        $subject = 'Отправка данных';
+        $headers = 'From: sendermail2281@gmail.com' . "\r\n" .
+            'Reply-To: sendermail2281@gmail.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
 
-        if ($mail->send())
+        $mailSent = mail($to, $subject, $mes, $headers);
+
+        if ($mailSent)
             echo json_encode(['status' => 'success', 'message' => "Сообщение успешно отправлено!"]);
         else
             echo json_encode(['status' => 'error', 'message' => "Ошибка, сообщение не отправлено! Возможно, проблемы на сервере"]);
